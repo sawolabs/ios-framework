@@ -23,8 +23,11 @@ var PayloadApi = ""
 present(VC, animated: true, completion: nil)
 let apiKey = ["apikey": "<ADD-YOUR-KEY-HERE>"]   \\ ADD YOUR API-KEY HERE
 let identifierType = ["identifier": "<ADD-IDENTIFIER-HERE>"]   \\ ADD IDENTIFIER HERE
+let secretKey = ["secretkey":"<ADD-YOUR-SECRET-KEY-HERE>"] \\ ADD SECRET KEY HERE
+
 NotificationCenter.default.post(name: Notification.Name("ProductKey"), object: nil,userInfo: apiKey)
 NotificationCenter.default.post(name: Notification.Name("IdentifierType"), object:nil, userInfo: identifierType)
+NotificationCenter.default.post(name: Notification.Name("SecretType"), object:nil, userInfo: secretKey)
 
 ```
 8. The following code in viewDidLoad func 
@@ -60,8 +63,6 @@ NotificationCenter.default.addObserver(self, selector: #selector(loginCONTENTapi
 11. Add values to the places marked in comments.
 
 12. PayloadApi variable contains the user's payload.
-
-
 
    
 
