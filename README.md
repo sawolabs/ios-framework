@@ -3,7 +3,7 @@ iOS framework to integrate the sawo-sdk in iOS applications
 ## Steps to integrate Sawo iOS Framework 
 1. Login to sawo dev console - [dev.sawolabs.com](http://dev.sawolabs.com) 
    
-2. Create a new project and copy the API key.
+2. Create a new project and copy the API key as well as Secret Key.
 
 3. Click Clone or download button in the <> Code tab and select Download ZIP to download the framework.
 
