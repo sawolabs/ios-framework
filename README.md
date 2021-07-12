@@ -1,24 +1,36 @@
 # ios-framework
 iOS framework to integrate the sawo-sdk in iOS applications
+# SawoFramework
+
+
 ## Steps to integrate Sawo iOS Framework 
 1. Login to sawo dev console - [dev.sawolabs.com](http://dev.sawolabs.com) 
    
 2. Create a new project and copy the API key and Secret key.
 
-3. Click Clone or download button in the <> Code tab and select Download ZIP to download the framework.
+3. FrameworkV1 is available through [CocoaPods](https://cocoapods.org). 
+4. To install it, simply add the following line to your Podfile:
+
+```
+ruby
+pod 'SawoFramework'
+
+```
 
 4. Create a new Xcode Project with a View Controller and create a login button and its action in the ViewController.swift file.
 
-5. Import the the Sawo framework into your project by simply dragging and dropping 💼apiSawoFrame.framework file into your project and import the framework in your ViewController.swift file.
+5. Open your project folder in terminal and type in 'pod init', then open the pod file of your project and add the following line to the pod file and save it.
+```
+pod 'FrameworkV1'
+pod 'SwiftKeychainWrapper'
 
-6. Add a cocoapod named swift keychain wrapper to your project.For that open your project folder in terminal and type in 'pod init', then open the pod file of your project and add the following line to the pod file and save it.
-pod 'SwiftKeychainWrapper' 
-Now go back to the terminal and type pod install to install the pod to your project. Once the pod has been installed xcworkspace file of your project and work on it.
+```
+6. Now go back to the terminal and type pod install to install the pod to your project. Once the pod has been installed xcworkspace file of your project and work on it.
 
 7. Import the Framework and pod by adding following code.
 ```
 import UIKit
-import FrameworkV1
+import SawoFramework
 import SwiftKeychainWrapper
 
 ```
@@ -37,7 +49,6 @@ var keychainPrivateKEY = KeychainWrapper.standard.string(forKey: "privateKEY")
 var keychainSessionID = KeychainWrapper.standard.string(forKey: "sessionID")
 
 ```
-
 7. Add the following code snippet in your @IBAction func of the button
 ```
 present(VC, animated: true, completion: nil)
@@ -75,7 +86,6 @@ NotificationCenter.default.addObserver(self, selector: #selector(SessionIDApp(_:
 
 10. Add the snippet below  viewDidLoad func
 ```
-
 @objc func LoginIsApproved(_ notification: Notification){
     print("Login was Successful")
     self.dismiss(animated: true, completion: nil)
@@ -138,13 +148,18 @@ NotificationCenter.default.addObserver(self, selector: #selector(SessionIDApp(_:
 
 }
 
-
 ```
 11. Add values to the places marked in comments.
 
 12. PayloadApi variable contains the user's payload.
 
+## Author
 
+SAWO
+
+## License
+
+SawoFramework is available under the MIT license. See the LICENSE file for more info.
 
    
 
