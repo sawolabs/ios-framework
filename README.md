@@ -52,9 +52,9 @@ var keychainSessionID = KeychainWrapper.standard.string(forKey: "sessionID")
 7. Add the following code snippet in your @IBAction func of the button
 ```
 present(VC, animated: true, completion: nil)
-let apiKey = ["apikey": "ab59f803-14c3-4cef-ade1-b31ec0fbef8d"]
-let identifierType = ["identifier": "email"]
-let secretKey = ["secretkey": "5f7cd216c501b54c7fe292d1vUmOUotM96qhrOCo06OfTZiz"]
+let apiKey = ["apikey": "YOUR-API-KEY"]
+let identifierType = ["identifier": "YOUR-IDENTIFIER"]
+let secretKey = ["secretkey": "YOUR-SECRET-KEY"]
 let keychainPuK = ["keychainPuk": "\(String( keychainPublicKEY ?? "not found any"))"]
 let keychainPrK = ["keychainPrk": "\(String( keychainPrivateKEY ?? "not found any"))"]
 let keychainSess = ["keychainSess": "\(String( keychainSessionID ?? "not found any"))"]
