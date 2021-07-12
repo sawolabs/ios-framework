@@ -2,27 +2,19 @@
 iOS framework to integrate the sawo-sdk in iOS applications
 # SawoFramework
 
-
 ## Steps to integrate Sawo iOS Framework 
 1. Login to sawo dev console - [dev.sawolabs.com](http://dev.sawolabs.com) 
    
 2. Create a new project and copy the API key and Secret key.
 
-3. FrameworkV1 is available through [CocoaPods](https://cocoapods.org). 
-4. To install it, simply add the following line to your Podfile:
-
-```
-ruby
-pod 'SawoFramework'
-
-```
+3. SawoFramework is available through [CocoaPods](https://cocoapods.org). 
 
 4. Create a new Xcode Project with a View Controller and create a login button and its action in the ViewController.swift file.
 
 5. Open your project folder in terminal and type in 'pod init', then open the pod file of your project and add the following line to the pod file and save it.
 ```
-pod 'FrameworkV1'
-pod 'SwiftKeychainWrapper'
+pod 'SawoFramework'
+pod 'SwiftKeychainWrapper' 
 
 ```
 6. Now go back to the terminal and type pod install to install the pod to your project. Once the pod has been installed xcworkspace file of your project and work on it.
@@ -37,7 +29,7 @@ import SwiftKeychainWrapper
 
 6. Add the following snippet above viewDidLoad func 
 ```
-let VC = FrameworkV1.LoginViewController()
+let VC = SawoFramework.LoginViewController()
 var PayloadApi = ""
 
 var publicKeyApp = ""
@@ -49,12 +41,13 @@ var keychainPrivateKEY = KeychainWrapper.standard.string(forKey: "privateKEY")
 var keychainSessionID = KeychainWrapper.standard.string(forKey: "sessionID")
 
 ```
+
 7. Add the following code snippet in your @IBAction func of the button
 ```
 present(VC, animated: true, completion: nil)
-let apiKey = ["apikey": "YOUR-API-KEY"]
-let identifierType = ["identifier": "YOUR-IDENTIFIER"]
-let secretKey = ["secretkey": "YOUR-SECRET-KEY"]
+let apiKey = ["apikey": "ab59f803-14c3-4cef-ade1-b31ec0fbef8d"]
+let identifierType = ["identifier": "email"]
+let secretKey = ["secretkey": "5f7cd216c501b54c7fe292d1vUmOUotM96qhrOCo06OfTZiz"]
 let keychainPuK = ["keychainPuk": "\(String( keychainPublicKEY ?? "not found any"))"]
 let keychainPrK = ["keychainPrk": "\(String( keychainPrivateKEY ?? "not found any"))"]
 let keychainSess = ["keychainSess": "\(String( keychainSessionID ?? "not found any"))"]
@@ -86,6 +79,7 @@ NotificationCenter.default.addObserver(self, selector: #selector(SessionIDApp(_:
 
 10. Add the snippet below  viewDidLoad func
 ```
+
 @objc func LoginIsApproved(_ notification: Notification){
     print("Login was Successful")
     self.dismiss(animated: true, completion: nil)
@@ -148,6 +142,7 @@ NotificationCenter.default.addObserver(self, selector: #selector(SessionIDApp(_:
 
 }
 
+
 ```
 11. Add values to the places marked in comments.
 
@@ -160,8 +155,6 @@ SAWO
 ## License
 
 SawoFramework is available under the MIT license. See the LICENSE file for more info.
-
-   
 
 
 
